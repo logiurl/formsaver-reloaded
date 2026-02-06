@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FormSaver</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>📋 FormSaver</h1>
+      <p class="subtitle">Save, Restore & Manage Forms</p>
+    </header>
+
+    <div class="actions">
+      <button id="saveBtn" class="btn btn-primary">
+        <span class="icon">💾</span>
+        Save Current Form
+      </button>
+    </div>
+
+    <div class="fill-mode-section">
+      <label for="fillMode" class="mode-label">
+        <span class="icon">⚙️</span>
+        Auto-Fill Mode:
+      </label>
+      <select id="fillMode" class="mode-select">
+        <option value="instant">⚡ Instant Fill (Default)</option>
+        <option value="human">⌨️ Human-like Typing</option>
+        <option value="slow">🐢 Slow Fill (300ms delay)</option>
+        <option value="silent">🤫 Silent Fill (No events)</option>
+        <option value="paste">📋 Paste Fill</option>
+      </select>
+      <p class="mode-hint">Switch modes if a website blocks autofill</p>
+    </div>
+
+    <div class="data-management">
+      <button id="exportBtn" class="btn btn-secondary">
+        <span class="icon">📤</span>
+        Export All
+      </button>
+      <button id="importBtn" class="btn btn-secondary">
+        <span class="icon">📥</span>
+        Import
+      </button>
+      <input type="file" id="importFile" accept=".json" style="display: none;">
+    </div>
+
+    <div class="saved-forms-section">
+      <h2>Saved Forms <span id="formCount" class="count">0</span></h2>
+      <div id="savedFormsList" class="forms-list">
+        <div class="empty-state">
+          <div class="empty-icon">📝</div>
+          <p>No saved forms yet</p>
+          <p class="hint">Fill out a form on any website and click "Save Current Form"</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="notification" class="notification"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>
